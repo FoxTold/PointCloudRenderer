@@ -1,10 +1,6 @@
 #pragma once
-
+#include "glm/vec3.hpp"
 struct Vertex {
-  struct {
-    float x, y, z;
-  } pos;
-  struct {
-    float r, g, b;
-  } rgb;
+  glm::vec3 pos;
+  glm::vec3 rgb;
 };

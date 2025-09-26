@@ -7,6 +7,7 @@ public:
   Triangle();
   void init();
   void render();
+  void rotate();
 
 private:
   std::vector<Vertex> vertexes;

@@ -2,3 +2,7 @@
 	path = deps/glfw
 	url = https://github.com/glfw/glfw.git
 	branch = 3.3-stable
+[submodule "deps/glm"]
+	path = deps/glm
+	url = https://github.com/g-truc/glm.git
+	branch = release-1-0-2

@@ -25,4 +25,5 @@ target_include_directories(Renderer PRIVATE
 target_link_libraries(Renderer PRIVATE
     OpenGL::GL
     glfw
+    glm
 )

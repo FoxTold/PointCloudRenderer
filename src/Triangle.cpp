@@ -3,10 +3,13 @@
 
 #include <GLFW/glfw3.h>
 #include <fstream>
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 #include <iostream>
 #include <sstream>
-#include <string>
 
+#include <string>
 std::string loadShaderSource(const char *filepath) {
   std::ifstream file(filepath);
   if (!file.is_open()) {
@@ -109,4 +112,13 @@ void Triangle::render() {
   glUseProgram(_shaderProgram);
   glBindVertexArray(VAO);
   glDrawArrays(GL_TRIANGLES, 0, 6);
+}
+
+void Triangle::rotate() {
+  float time = glfwGetTime(); // seconds since program start
+  glm::mat4 trans = glm::mat4(1.0f);
+  trans = glm::rotate(trans, time * 0.5f, glm::vec3(0.0f, 1.0f, 0.0f));
+
+  unsigned int transformLoc = glGetUniformLocation(_shaderProgram, "transform");
+  glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(trans));
 }

@@ -40,6 +40,7 @@ void Renderer::render() {
 
   for (auto &triangle : _triangles) {
     triangle.render();
+    triangle.rotate();
   }
 
   handleFpsCounter();
